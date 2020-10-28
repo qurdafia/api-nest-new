@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from event.api.views import EventsView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -27,5 +28,7 @@ urlpatterns = [
     #path('rest-auth/registration/', include('rest_auth.registration.urls')),
     #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('apievent/', include('event.api.urls')),
+    #path('apievent/', include('event.api.urls')),
+    path('apievent/', EventsView.as_view(),
+         name='event')
 ]

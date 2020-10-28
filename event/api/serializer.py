@@ -1,17 +1,18 @@
 from rest_framework import serializers
 from event.models import Attributes, Events
+from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 
-class AttributesSerializer(serializers.ModelSerializer):
+class AttributesSerializer(WritableNestedModelSerializer):
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Attributes
-        fields = ['id', 'conf', 'value', 'key']
+        fields = '__all__'
 
 
-class EventsSerializer(serializers.ModelSerializer):
+class EventsSerializer(WritableNestedModelSerializer):
     attributes = AttributesSerializer(many=True)
 
     class Meta:
         model = Events
-        fields = ['id', 'deviceId', 'deviceName', 'personId', 'personName', 'attributes']
-        depth = 1
+        fields = ('id','deviceId', 'deviceName', 'personId', 'personName', 'attributes')

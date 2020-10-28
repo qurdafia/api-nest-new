@@ -1,13 +1,16 @@
 from django.conf.urls import url, include
-from .views import EventsViewSet, AttributesViewSet
+from django.urls import path, include
+from .views import EventsView
 from rest_framework.routers import DefaultRouter
 
 
-router = DefaultRouter()
-router.register("events", EventsViewSet, basename="events")
-router.register("attributes", AttributesViewSet, basename="attributes")
+#router = DefaultRouter()
+#router.register("events", EventsView, basename="events")
+# router.register("attributes", AttributesViewSet, basename="attributes")
 
 
 urlpatterns = [
-    url('', include(router.urls))
+    # path('', views.EventsView.as_view(),
+         name='event')
+    #url('', include(router.urls))
 ]
