@@ -127,7 +127,9 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
         'rest_framework.permissions.AllowAny',
     ],
-    'USER_DETAILS_SERIALIZER': 'userapp.serializer.UserDetailsSerializer'
+    'USER_DETAILS_SERIALIZER': 'userapp.serializer.UserDetailsSerializer',
+    #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    #'PAGE_SIZE': 10
 }
 
 

@@ -13,7 +13,7 @@ class Attributes(models.Model):
 class Events(models.Model):
     deviceId = models.CharField(max_length=255)
     deviceName = models.CharField(max_length=255)
-    personId = models.CharField(max_length=255)
+    idNumber = models.CharField(max_length=255)
     personName = models.CharField(max_length=255)
     attributes = models.ManyToManyField(Attributes, default=None, blank=True)
     # attributes = models.ForeignKey(Attributes, related_name='attributes', on_delete=models.CASCADE, default="")
